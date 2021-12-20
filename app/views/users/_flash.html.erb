@@ -1,2 +1,9 @@
-<%= flash[:error] %>
-<%= flash[:notice] %>
+<div class="alert alert-danger" role="alert" >
+<%= flash[:error] %> </div>
+
+<%
+=begin%>
+ <div class="alert alert-info" role="alert">
+<%= flash[:notice] %> </div> 
+<%
+=end%>
