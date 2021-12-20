@@ -28,7 +28,9 @@ class UsersController < ApplicationController
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        flash[:error] = "User has not been created yet!"
+        flash[:alert] = "Invalid email or password"
+        format.html { render :new, status: :unprocessable_entity }  
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
