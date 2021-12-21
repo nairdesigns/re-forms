@@ -12,8 +12,7 @@ class SessionsController < ApplicationController
       cookies[:user_id] = @user.id
       
       
-      redirect_to root_path
-      flash.now[:notice] = "log in successful!"
+      redirect_to root_path,  :flash => { :notice => "log in successful!"}
   
       
     else
