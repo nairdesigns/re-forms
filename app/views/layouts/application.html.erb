@@ -18,6 +18,9 @@
     <title>Hello, world!</title>
   </head>
   <body>
+    <% if current_user %>
+      Hi <%= current_user.email %>
+    <%  end %>
     <h1>Authentication practice</h1>
       <%= render partial: "users/flash" %>
 
