@@ -9,8 +9,9 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: user_params[:email])
     #compare passwords
     if @user && @user.password == user_params[:password]
-      cookies[:user_id] = @user.id
-      
+      cookies.encrypted.signed[:user_id] = @user.id
+      #helper method .signed helps encrypt!!!!
+      #      cookies.encrypted.signed[:user_id] = @user.id ....... doestn work!! need to change routes.rb file!!
       
       redirect_to root_path,  :flash => { :notice => "log in successful!"}
   
