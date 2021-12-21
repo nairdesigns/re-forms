@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
     #look up user in data base
     @user = User.find_by(email: user_params[:email])
     #compare passwords
-    if @user && @user.password == user_params[:password]
-      cookies.encrypted.signed[:user_id] = @user.id
+    if @user && @user.is_password?(user_params[:password])                   
+      session[:user_id] = @user.id
       #helper method .signed helps encrypt!!!!
       #      cookies.encrypted.signed[:user_id] = @user.id ....... doestn work!! need to change routes.rb file!!
       
