@@ -1,0 +1,7 @@
+<h1>Register</h1>
+
+<%= render 'form', user: @user %>
+
+<%= link_to 'Back', users_path %>
+
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
